@@ -35,7 +35,7 @@ notebooks/*.ipynb_checkpoints
 *~
 
 # Outputs
-saida_analise/
+# saida_analise/
 *.csv
 *.xlsx
 

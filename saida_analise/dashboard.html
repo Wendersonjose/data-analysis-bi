@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Análise de Extratos Bancários</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;   
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .stat-card .value {
+            color: #333;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card .value.positive {
+            color: #10b981;
+        }
+        
+        .stat-card .value.negative {
+            color: #ef4444;
+        }
+        
+        .stat-card .subtitle {
+            color: #999;
+            font-size: 0.85em;
+        }
+        
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 30px;
+        }
+        
+        .chart-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .chart-card.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .chart-card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .chart-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: white;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .charts {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stat-card .value {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 Dashboard - Análise de Extratos Bancários</h1>
+            <p>Itaú PJ - Janeiro a Novembro 2025</p>
+        </div>
+        
+        <!-- Estatísticas -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total de Entradas</h3>
+                <div class="value positive">R$ 377.988,59</div>
+                <div class="subtitle">11 meses analisados</div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Total de Saídas</h3>
+                <div class="value negative">R$ 384.173,52</div>
+                <div class="subtitle">581 transações</div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Resultado Líquido</h3>
+                <div class="value negative">R$ -6.184,93</div>
+                <div class="subtitle">Déficit no período</div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Média Mensal</h3>
+                <div class="value">R$ 34.362,60</div>
+                <div class="subtitle">Entradas / Saídas</div>
+            </div>
+        </div>
+        
+        <!-- Gráficos -->
+        <div class="charts">
+            <!-- Entradas por Mês -->
+            <div class="chart-card">
+                <h2>📈 Entradas por Mês</h2>
+                <img src="graficos/entradas_por_mes.png" alt="Entradas por Mês">
+            </div>
+            
+            <!-- Saídas por Mês -->
+            <div class="chart-card">
+                <h2>📉 Saídas por Mês</h2>
+                <img src="graficos/saidas_por_mes.png" alt="Saídas por Mês">
+            </div>
+            
+            <!-- Resultado por Mês -->
+            <div class="chart-card full-width">
+                <h2>💰 Resultado Líquido por Mês</h2>
+                <img src="graficos/resultado_por_mes.png" alt="Resultado por Mês">
+            </div>
+            
+            <!-- Top Categorias Saída -->
+            <div class="chart-card">
+                <h2>🔴 Top 10 Categorias - Saídas</h2>
+                <img src="graficos/top10_categorias_saida.png" alt="Top Categorias Saída">
+            </div>
+            
+            <!-- Top Categorias Entrada -->
+            <div class="chart-card">
+                <h2>🟢 Top 10 Categorias - Entradas</h2>
+                <img src="graficos/top10_categorias_entrada.png" alt="Top Categorias Entrada">
+            </div>
+            
+            <!-- Pareto -->
+            <div class="chart-card full-width">
+                <h2>📊 Análise de Pareto - Saídas por Categoria</h2>
+                <img src="graficos/pareto_saidas_categoria.png" alt="Pareto Saídas">
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Gerado automaticamente pelo sistema de análise de extratos bancários</p>
+            <p>Dados extraídos de 11 PDFs • 581 transações categorizadas • 6 categorias identificadas</p>
+            <p style="margin-top: 10px;">
+                <a href="../analise_extratos.xlsx" target="_blank">📥 Baixar Excel Completo</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
