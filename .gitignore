@@ -36,8 +36,8 @@ notebooks/*.ipynb_checkpoints
 
 # Outputs
 # saida_analise/
-*.csv
-*.xlsx
+# *.csv
+# *.xlsx
 
 # PDFs (comentar se quiser versionar os PDFs)
 pdfs/*.pdf
